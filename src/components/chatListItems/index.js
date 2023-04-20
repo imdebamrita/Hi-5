@@ -9,27 +9,44 @@ const ChatListItem = () => {
             />
             <View style={styles.content}>
                 <View style={styles.row}>
-                    <Text style={styles.name}>Virat Kohli</Text>
+                    <Text numberOfLines={1} style={styles.name}>Virat Kohli</Text>
                     <Text style={styles.subTitle}>8:31</Text>
                 </View>
-                <View style={styles.subTitle}>
-                    <Text>How are you?</Text>
-                </View>
+                <Text numberOfLines={2} style={styles.subTitle}>How are you? </Text>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    container:{},
-    image:{
-        width: 80,
-        height: 80,
+    container:{
+        flexDirection: 'row',
+        marginHorizontal: 10,
+        marginVertical: 5,
+        height: 70,
     },
-    content:{},
-    row:{},
-    name:{},
-    subTatle:{},
+    image:{
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        marginRight: 10,
+    },
+    content:{
+        flex: 1,
+        borderBottomWidth: StyleSheet.hairlineWidth,
+        borderBottomColor: 'lightgray'
+    },
+    row:{
+        flexDirection: 'row',
+        marginBottom: 5,
+    },
+    name:{
+        flex: 1,
+        fontWeight: 'bold',
+    },
+    subTitle:{
+        color: 'gray',
+    },
 })
 
 export default ChatListItem;
