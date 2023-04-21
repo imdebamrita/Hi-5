@@ -1,15 +1,24 @@
+import { useState } from 'react';
 import { View, Text, StyleSheet, TextInput } from 'react-native'
 import React from 'react'
 import { AntDesign, MaterialIcons } from '@expo/vector-icons';
 
 const InputBox = () => {
+    const [newMessage , setNewMessage] = useState('');
+
+    const onSent = () => {
+        console.warn("Sending a new message: " + newMessage);
+
+        setNewMessage('');
+    }
+
   return (
     <View style={styles.container}>
         <AntDesign name='plus' size={20} color='royalblue'/>
 
-        <TextInput style={styles.input} placeholder='Enter your message here...'/>
+        <TextInput value={newMessage} onChangeText={setNewMessage} style={styles.input} placeholder='Enter your message here...'/>
 
-        <MaterialIcons style={styles.send} name="send" size={16} color="white" />   
+        <MaterialIcons onPress={onSent} style={styles.send} name="send" size={16} color="white" />   
     </View>
   )
 }
@@ -28,7 +37,7 @@ const styles = StyleSheet.create({
         padding: 5,
         marginHorizontal: 10,
         paddingHorizontal: 10,
-        borderRadius: "50",
+        borderRadius: 50,
         borderColor: 'lightgray',
         borderWidth: StyleSheet.hairlineWidth,
     },
